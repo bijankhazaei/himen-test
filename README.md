@@ -8,6 +8,8 @@ php artisan key:generate
 
 php artisan migrate:fresh --seed
 
+php artisan passport:install
+
 user1 email: user1@example.com
 user2 email: user2@example.com
 user2 email: user3@example.com

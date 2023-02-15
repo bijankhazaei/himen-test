@@ -15,5 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')
-    ->get('/products', [ProductController::class, 'index']);
+Route::post('/login', [AuthController::class, 'login'])
+    ->name('authentication');
+
+Route::middleware('auth:api')->get('/products', [ProductController::class, 'index']);

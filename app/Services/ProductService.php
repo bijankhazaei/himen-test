@@ -6,7 +6,6 @@ namespace App\Services;
 
 use App\Contract\ProductServiceInterface;
 use App\Data\ProductData;
-use App\Models\Product\Product;
 use App\Repositories\ProductRepository;
 
 class ProductService implements ProductServiceInterface

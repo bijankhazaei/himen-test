@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Product\ProductResponseResource;
 use App\Http\Resources\SimpleResponseResource;
 use App\Services\ProductService;
 
@@ -22,6 +23,8 @@ class ProductController extends Controller
     {
         $products = $this->productService->getAll();
 
-        return $this->successfulResponse($products);
+        return $this->successfulResponse(
+            new ProductResponseResource($products)
+        );
     }
 }

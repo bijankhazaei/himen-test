@@ -14,7 +14,6 @@ class UserService
     ) {
     }
 
-
     /**
      * @param string $email
      * @return User
@@ -22,9 +21,5 @@ class UserService
     public function getUser(string $email): User
     {
         return $this->userRepository->findOneByEmail($email);
-    }
-
-    public function createToken()
-    {
     }
 }

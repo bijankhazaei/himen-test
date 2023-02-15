@@ -9,13 +9,20 @@ use Spatie\LaravelData\Data;
 class ProductData extends Data
 {
     /**
-     * @param string $productName
-     * @param string $productSKU
+     * @param string $name
+     * @param string $image
+     * @param string $sellPrice
+     * @param string $buyPrice
+     * @param string $stock
+     * @param string $visits
      */
     public function __construct(
-        public string $productName,
-        public string $productSKU
-    )
-    {
+        public string $name,
+        public string $image,
+        public string $sellPrice,
+        public string $buyPrice,
+        public string $stock,
+        public string $visits,
+    ) {
     }
 }

@@ -6,7 +6,6 @@ namespace App\Services;
 
 use App\Contract\ProductServiceInterface;
 use App\Data\ProductData;
-use App\Http\Requests\ProductRequest;
 use App\Models\Product\Product;
 use App\Repositories\ProductRepository;
 
@@ -25,8 +24,12 @@ class ProductService implements ProductServiceInterface
     public function makeDTO(): ProductData
     {
         return new ProductData(
-            request('product_name'),
-            request('product_sku'),
+            request('name'),
+            request('image'),
+            request('sell_price'),
+            request('buy_price'),
+            request('stock'),
+            request('visits'),
         );
     }
 
@@ -38,8 +41,9 @@ class ProductService implements ProductServiceInterface
         return $this->productRepository;
     }
 
-    public function create(): Product
+    public function getAll(): Product
     {
-        // TODO: Implement
+        if($user)
+        $this->repository()->getAll();
     }
 }

@@ -41,9 +41,24 @@ class ProductService implements ProductServiceInterface
         return $this->productRepository;
     }
 
-    public function getAll(): Product
+    /**
+     * @return mixed
+     */
+    public function getAll(): mixed
     {
-        if($user)
-        $this->repository()->getAll();
+        $user = auth()->user();
+        $permissions = $user->getPermissionNames()->toArray();
+
+        if (empty($permissions)) {
+            return false;
+        }
+
+        if (in_array('all permissions', $permissions)) {
+            return $this->repository()->all();
+        }
+
+        $select = array_map(fn($value) => substr($value, 5), $permissions);
+
+        return $this->repository()->get($select);
     }
 }

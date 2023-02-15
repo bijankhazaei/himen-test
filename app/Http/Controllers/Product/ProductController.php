@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\SimpleResponseResource;
 use App\Services\ProductService;
 
 class ProductController extends Controller
@@ -14,10 +15,13 @@ class ProductController extends Controller
     ) {
     }
 
+    /**
+     * @return SimpleResponseResource
+     */
     public function index()
     {
         $products = $this->productService->getAll();
 
-        $this->successfulResponse();
+        return $this->successfulResponse($products);
     }
 }

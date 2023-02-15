@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 use Spatie\Permission\Models\Permission;
 
 class UserPermissionSeeder extends Seeder
@@ -19,7 +22,13 @@ class UserPermissionSeeder extends Seeder
         Permission::create(['name' => 'all permissions']);
 
         // create User1
-        $user1 = User::factory()->create();
+        $user1 = User::create([
+            'name'              => fake()->name(),
+            'email'             => 'user1@example.com',
+            'email_verified_at' => now(),
+            'password'          => bcrypt('password'),
+            'remember_token'    => Str::random(10),
+        ]);
 
         // Add permissions to user1
         $user1->givePermissionTo([
@@ -29,7 +38,13 @@ class UserPermissionSeeder extends Seeder
         ]);
 
         // create User2
-        $user2 = User::factory()->create();
+        $user2 = User::create([
+            'name'              => fake()->name(),
+            'email'             => 'user2@example.com',
+            'email_verified_at' => now(),
+            'password'          => bcrypt('password'), // password
+            'remember_token'    => Str::random(10),
+        ]);
 
         // add permissions to user2
         $user2->givePermissionTo([
@@ -39,7 +54,13 @@ class UserPermissionSeeder extends Seeder
         ]);
 
         // create User3
-        $user3 = User::factory()->create();
+        $user3 = User::create([
+            'name'              => fake()->name(),
+            'email'             => 'user3@example.com',
+            'email_verified_at' => now(),
+            'password'          => bcrypt('password'), // password
+            'remember_token'    => Str::random(10),
+        ]);
 
         // add permissions to user3
         $user3->givePermissionTo([

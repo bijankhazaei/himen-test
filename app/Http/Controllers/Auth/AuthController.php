@@ -18,6 +18,8 @@ class AuthController extends Controller
     }
 
     /**
+     * authentication method for login request and create token
+     *
      * @param LoginRequest $request
      * @return SimpleResponseResource
      */

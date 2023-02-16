@@ -17,6 +17,8 @@ class ProductController extends Controller
     }
 
     /**
+     * return all products
+     *
      * @return SimpleResponseResource
      */
     public function index()

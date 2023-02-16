@@ -14,6 +14,12 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    /**
+     * General Response for all routes
+     *
+     * @param array|object $data
+     * @return SimpleResponseResource
+     */
     protected function successfulResponse(array|object $data = []): SimpleResponseResource
     {
         return new SimpleResponseResource(

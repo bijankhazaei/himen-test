@@ -15,6 +15,8 @@ class UserService
     }
 
     /**
+     * Find user by email address
+     *
      * @param string $email
      * @return User
      */

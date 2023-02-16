@@ -41,6 +41,8 @@ class ProductService implements ProductServiceInterface
     }
 
     /**
+     * Return products depends on user role
+     *
      * @return mixed
      */
     public function getAll(): mixed
